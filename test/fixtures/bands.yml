@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bandName: MyString
+  bandPhone: MyString
+  genre_id: 
+  user_id: 
+
+two:
+  bandName: MyString
+  bandPhone: MyString
+  genre_id: 
+  user_id: 

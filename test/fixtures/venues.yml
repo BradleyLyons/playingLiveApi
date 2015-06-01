@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  venueName: MyString
+  venueAddress: MyString
+  venueCity: MyString
+  venueState: MyString
+  venueZip: MyString
+  lat: 9.99
+  lon: 9.99
+  user_id: 
+
+two:
+  venueName: MyString
+  venueAddress: MyString
+  venueCity: MyString
+  venueState: MyString
+  venueZip: MyString
+  lat: 9.99
+  lon: 9.99
+  user_id: 
