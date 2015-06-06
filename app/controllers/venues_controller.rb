@@ -4,7 +4,15 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
+    @venues = Venue.near([params[:lat], params[:lon]], params[:distance], :select => "events.*").joins(:event).where(:events => {:id => '8'})
+    
+    
+    
+    
+    
+    
+    
+    
 
     render json: @venues
   end

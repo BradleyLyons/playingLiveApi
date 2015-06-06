@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601222634) do
+ActiveRecord::Schema.define(version: 20150606225042) do
 
   create_table "bands", force: :cascade do |t|
-    t.string   "bandName",   limit: 255
-    t.string   "bandPhone",  limit: 255
+    t.string   "bandName",   limit: 255, null: false
+    t.string   "bandPhone",  limit: 255, null: false
     t.integer  "genre_id",   limit: 4
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",             null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150601222634) do
   add_index "event_items", ["event_id"], name: "index_event_items_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.datetime "eventStartTime"
+    t.datetime "eventStartTime",           null: false
     t.integer  "venue_id",       limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
@@ -45,31 +45,31 @@ ActiveRecord::Schema.define(version: 20150601222634) do
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "genres", force: :cascade do |t|
-    t.string   "genreDescription", limit: 255
+    t.string   "genreDescription", limit: 255, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      limit: 255
-    t.string   "firstName",  limit: 255
-    t.string   "lastName",   limit: 255
-    t.string   "password",   limit: 255
+    t.string   "email",      limit: 255, null: false
+    t.string   "firstName",  limit: 255, null: false
+    t.string   "lastName",   limit: 255, null: false
+    t.string   "password",   limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "venues", force: :cascade do |t|
-    t.string   "venueName",    limit: 255
-    t.string   "venueAddress", limit: 255
-    t.string   "venueCity",    limit: 255
-    t.string   "venueState",   limit: 255
-    t.string   "venueZip",     limit: 255
-    t.decimal  "lat",                      precision: 10
-    t.decimal  "lon",                      precision: 10
-    t.integer  "user_id",      limit: 4
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.string   "venueName",  limit: 255, null: false
+    t.string   "address",    limit: 255, null: false
+    t.string   "venueCity",  limit: 255, null: false
+    t.string   "venueState", limit: 255, null: false
+    t.string   "venueZip",   limit: 255, null: false
+    t.float    "latitude",   limit: 24,  null: false
+    t.float    "longitude",  limit: 24,  null: false
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "venues", ["user_id"], name: "index_venues_on_user_id", using: :btree
