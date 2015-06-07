@@ -140,29 +140,39 @@ user = User.create(
     ]
   )
   today = DateTime.now
+  
+  purchase = Ticket.create(
+    [
+      {purchase: "Online"},
+      {purchase: "Will Call"},
+      {purchase: "Ticket Master"}
+    ]
+  )
+  
+  
   event = Event.create(
     [
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 7), venue_id: '1' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 7), venue_id: '2' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 9), venue_id: '3' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+2, 8, 30), venue_id: '4' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+2, 10), venue_id: '5' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 3), venue_id: '6' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 7), venue_id: '7' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 9), venue_id: '1' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 9, 30), venue_id: '2' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+4, 7), venue_id: '3' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+5, 7, 30), venue_id: '4' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+7, 9), venue_id: '5' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+8, 8, 30), venue_id: '6' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+8, 10), venue_id: '7' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 4), venue_id: '1' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 9, 30), venue_id: '1' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 10), venue_id: '2' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 7, 45), venue_id: '3' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 10), venue_id: '4' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 10, 30), venue_id: '5' },
-      {eventStartTime: DateTime.new(today.year, today.month, today.day+15, 7), venue_id: '6' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 7), venue_id: '1', age: '0', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 7), venue_id: '2', age: '0', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+1, 9), venue_id: '3', age: '18', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+2, 8, 30), venue_id: '4', age: '0', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+2, 10), venue_id: '5', age: '0', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 3), venue_id: '6', age: '0', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 7), venue_id: '7', age: '21', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 9), venue_id: '1', age: '0', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+3, 9, 30), venue_id: '2', age: '0', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+4, 7), venue_id: '3', age: '18', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+5, 7, 30), venue_id: '4', age: '0', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+7, 9), venue_id: '5', age: '0', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+8, 8, 30), venue_id: '6', age: '0', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+8, 10), venue_id: '7', age: '21', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 4), venue_id: '1', age: '0', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 9, 30), venue_id: '1', age: '0', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+9, 10), venue_id: '2', age: '18', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 7, 45), venue_id: '3', age: '0', ticket_id: '3' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 10), venue_id: '4', age: '0', ticket_id: '1' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+11, 10, 30), venue_id: '5', age: '0', ticket_id: '2' },
+      {eventStartTime: DateTime.new(today.year, today.month, today.day+15, 7), venue_id: '6', age: '21', ticket_id: '3' }
     ]
   )
   
@@ -234,6 +244,8 @@ user = User.create(
       {band_id: '12', event_id: '21'}
     ]
   )
+  
+  
   
 
 # now = DateTime.now.change(hour: 19, min: 0, sec: 0, offset: 0) 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :query, except: [:new, :edit]
+  resources :tickets, except: [:new, :edit]
   resources :event_items, except: [:new, :edit]
   resources :events, except: [:new, :edit]
   resources :venues, except: [:new, :edit]

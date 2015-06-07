@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606225042) do
+ActiveRecord::Schema.define(version: 20150606234606) do
 
   create_table "bands", force: :cascade do |t|
     t.string   "bandName",   limit: 255, null: false
@@ -40,14 +40,23 @@ ActiveRecord::Schema.define(version: 20150606225042) do
     t.integer  "venue_id",       limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "age",            limit: 4
+    t.integer  "ticket_id",      limit: 4
   end
 
+  add_index "events", ["ticket_id"], name: "index_events_on_ticket_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "genres", force: :cascade do |t|
     t.string   "genreDescription", limit: 255, null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "purchase",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150606225042) do
   add_foreign_key "bands", "users"
   add_foreign_key "event_items", "bands"
   add_foreign_key "event_items", "events"
+  add_foreign_key "events", "tickets"
   add_foreign_key "events", "venues"
   add_foreign_key "venues", "users"
 end
