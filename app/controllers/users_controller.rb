@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params.has_key?(:last)
+      @users = User.where(lastName: params[:last])
+    else
+      @users = User.all
+    end 
+    
 
     render json: @users
   end

@@ -4,7 +4,12 @@ class BandsController < ApplicationController
   # GET /bands
   # GET /bands.json
   def index
-    @bands = Band.all
+    if params.has_key?(:bandName)
+      @bands = Band.where(bandName: params[:bandName])
+    else
+      @bands = Band.all
+    end
+    
 
     render json: @bands
   end

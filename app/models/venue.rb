@@ -5,9 +5,12 @@ class Venue < ActiveRecord::Base
   has_many :event
   has_many :event_item, :through => :event
   has_many :band, :through => :event_item
+
+  geocoded_by :address
+
   
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+  after_validation :reverse_geocode, :geocode
 
 
 end

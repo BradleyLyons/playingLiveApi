@@ -4,7 +4,11 @@ class GenresController < ApplicationController
   # GET /genres
   # GET /genres.json
   def index
-    @genres = Genre.all
+    if params.has_key?(:genre)
+      @genres = Genre.where(genreDescription: params[:genre])
+    else
+      @genres = Genre.all
+    end
 
     render json: @genres
   end

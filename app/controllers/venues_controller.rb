@@ -4,7 +4,11 @@ class VenuesController < ApplicationController
   # GET /venues
   # GET /venues.json
   def index
-    @venues = Venue.all
+    if params.has_key?(:name)
+      @venues = Venue.where(venueName: params[:name])
+    else
+      @venuess = Venue.all
+    end
     
     render json: @venues
   end
@@ -54,6 +58,6 @@ class VenuesController < ApplicationController
     end
 
     def venue_params
-      params.require(:venue).permit(:venueName, :venueAddress, :venueCity, :venueState, :venueZip, :lat, :lon, :user_id)
+      params.require(:venue).permit(:venueName, :address, :venueCity, :venueState, :venueZip, :lat, :lon, :user_id)
     end
 end

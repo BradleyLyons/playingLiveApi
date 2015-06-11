@@ -4,7 +4,12 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    if params.has_key?(:start)
+      @events = Event.where(eventStartTime: Time.parse(params[:start]).to_s(:db))
+    else
+      @events = Event.all
+    end
+    
 
     render json: @events
   end
