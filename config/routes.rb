@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  put 'event_detail/' => 'event_details#update'
+  resources :event_detail, except: [:new, :edit]
+  # resources :event_details do
+    # match :batch_create, via: [:post], on: :collection
+    # match :batch_update, via: [:put], on: :collection    
+  # end
   resources :query, except: [:new, :edit]
   resources :tickets, except: [:new, :edit]
   resources :event_items, except: [:new, :edit]
