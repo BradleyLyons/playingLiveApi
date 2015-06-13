@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606234606) do
+ActiveRecord::Schema.define(version: 20150612182905) do
 
   create_table "bands", force: :cascade do |t|
     t.string   "bandName",   limit: 255, null: false
@@ -30,17 +30,19 @@ ActiveRecord::Schema.define(version: 20150606234606) do
     t.integer  "event_id",   limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "priority",   limit: 4
+    t.datetime "time"
   end
 
   add_index "event_items", ["band_id"], name: "index_event_items_on_band_id", using: :btree
   add_index "event_items", ["event_id"], name: "index_event_items_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.datetime "eventStartTime",           null: false
+    t.datetime "eventStartTime",                       null: false
     t.integer  "venue_id",       limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "age",            limit: 4
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "age",            limit: 4, default: 0
     t.integer  "ticket_id",      limit: 4
   end
 
